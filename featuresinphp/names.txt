@@ -1,0 +1,4 @@
+"firstname", "lastname", "age", "salary", "hiredate"
+"Daniel", "Oikarainen", "43", "22345.65", "2023-04-20 15:21:25"
+"Jenny", "Oikarainen", "39", "43000.15", "2020-04-20 15:21:25"
+"Raimo", "Enontekiö", "80", "1234.20", "2016-04-20 12:21:25"
