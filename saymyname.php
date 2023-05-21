@@ -1,6 +1,5 @@
 <?php
 
-include 'danfunctions.php';
+include_once 'danfunctions.php';
 
 adaptonline\printMyFirstName();
-?>

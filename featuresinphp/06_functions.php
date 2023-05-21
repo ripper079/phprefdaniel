@@ -51,7 +51,14 @@ echo "Double the salary $baseSalary is " . doubleNumbers($baseSalary) . "<br>";
 echo "Double default value " . doubleNumbers() . "<br>";
 
 
+//Function expression
+function(){
+    return "Function expression";
+};
+
 //Anonymous functions (no name)
+//Aka lamda function
+//Aka Closure
 $multiply = function(int $a, int $b): int 
 {
     return $a * $b;
@@ -62,4 +69,7 @@ echo $multiply(12, 33000) . " year salary<br>";
 //One liner, aka arrow function
 $squareItUp = fn(int $a): int => $a*$a;
 echo $squareItUp(8) . "<br>";
+
+
+
 ?>

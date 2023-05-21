@@ -8,10 +8,8 @@
 </head>
 <body>
     <h1>This is a playground for php training</h1>
-    <?php
-        $country = "Sweden";
-    echo 'The viking country=$country<br>';
-    echo "The viking country=$country<br>";
-    ?>
+    
+
+    
 </body>
 </html>

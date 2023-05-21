@@ -1,8 +1,8 @@
-<?php 
+<?php
+
 namespace adaptonline;
 
 function printMyFirstName()
 {
-    echo "Daniel";
+    echo "Daniel Oikarainen";
 }
-?>
