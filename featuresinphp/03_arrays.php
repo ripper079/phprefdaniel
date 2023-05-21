@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 $numbers = [1,44,55,22];
 // var_dump($numbers);
-$fruits = array('apple', 'orange', 'pear');
+$fruits = array('apple', 'orange', 'pear');     //The old way of doing it
 // echo $fruits[1];
 
 //Associate array (lika a hashtable). You create the index

@@ -52,6 +52,7 @@ $num = 5;
 $str = "5";
 
 // Using the equality operator ==
+/*
 if ($num == $str) {
     echo "Equal (==): The values are equal when compared without considering data types.";
 } else {
@@ -66,6 +67,19 @@ if ($num === $str) {
 } else {
     echo "Not Equal (===): The values are either not equal or not of the same data type.";
 }
+*/
 
+//Match
+$bb = 1;
+$cc = 4;
+
+$result = match ($bb){
+    1 => "Variable is equal to one!",
+    2 => "Variable is equal to two!",
+    3 => "Variable is equal to three!",
+    4 => "Variable is equal to four!",
+    default => "None match at all"
+};
+echo $result;
 
 ?>
