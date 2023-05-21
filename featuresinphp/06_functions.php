@@ -2,6 +2,46 @@
 //enforce strict typing in PHP functions
 declare(strict_types = 1); 
 
+//By default values are passed by value. If you want to pass value by reference then you need to precede the variable with &
+//ei
+/*
+function doubleItUp(int &$number){
+    $number *=2;
+}
+*/
+
+//Nullable types
+function foo(): ?int 
+{
+    //Both ar eok
+    return null;
+    //return 2345;
+}
+
+function foobar(): int|array
+{
+    //First 2 ok
+    return 12;
+    //return [1,6];
+
+    //NOK
+    //return "PizzaTime";
+}
+
+//splat operator
+function sumOfAll(...$numbers) : int
+{
+    $totalSum = 0;
+
+    foreach($numbers as $oneNumber){
+        $totalSum+= $oneNumber;
+    }
+
+    return $totalSum;
+}
+
+echo sumOfAll(30,5,20,7) . "<br>";
+
 //Function have their own scope
 
 //GLOBALSCOPE -> aka gloabasl variable

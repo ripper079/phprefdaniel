@@ -2,6 +2,8 @@
 //enforce strict typing in PHP functions
 declare(strict_types = 1); 
 
+//PHP support break and continue
+
 for ($i = 0; $i <= 5; $i++)
 {
     echo $i . '<br>';
