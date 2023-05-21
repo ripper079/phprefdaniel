@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
   $GLOBALS - A superglobal variable that holds information about any variables in global scope.
 
@@ -16,10 +16,18 @@
 //var_dump($_GET);
 //var_dump($_REQUEST);
 
-var_dump($_SERVER);
+//var_dump($_SERVER);
+
+//Extract data from URL - Simulate this be input extra data in URL with e.i      ?food=pizza&eyecolor=blue
+echo $_GET["food"] . "<br>";
+echo $_GET["eyecolor"] . "<br>";
 
 //$mySQLHomeDir = $_SERVER['MYSQL_HOME'];
 
+//You cant extract value from a defined contant in the superglobal variable $GLOBAL
+define('MY_FULLNAME_CONSTANT', 'DANIEL OIKARAINEN');
+//Here it is OK
+$globalCarName = "Toyotaaaa";
 
 
 ?>
@@ -44,7 +52,11 @@ var_dump($_SERVER);
     <li>Server Software: <?php echo $_SERVER['SERVER_SOFTWARE']; ?></li>
     <li>Client Info: <?php echo $_SERVER['HTTP_USER_AGENT']; ?></li>
     <li>Remote Address: <?php echo $_SERVER['REMOTE_ADDR']; ?></li>
-    <li>Remote Port: <?php echo $_SERVER['REMOTE_PORT']; ?></li>
+    <li>Remote Port: <?php echo $_SERVER['REMOTE_PORT']; ?></li>    
+
+
+
+    <li>Golbal scope variable = <?= $GLOBALS['globalCarName'] ?> </li>
   </ul>
 </body>
 </html>

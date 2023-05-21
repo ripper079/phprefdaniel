@@ -290,23 +290,87 @@ function getAPost($id_post)
 
 function pdoAcces()
 {
-    //Data Source Name - String that specifies the details required to connect to a specific database
-    $dsn="mysql:host=localhost;port=3306;";
-    //PDO - PHP Data Objects
-
-    $DB_PORT = "3306";
-    $DB_HOST = "localhost" . ":" . $DB_PORT;
-    $DB_NAME = "test";
+    // $DB_PORT = "3306";
+    // $DB_HOST = "localhost" . ":" . $DB_PORT;
+    // $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
-    $DB_TABLE = "personer";
+    // $DB_TABLE = "personer";
+
+    //Data Source Name - String that specifies the details required to connect to a specific database - aka connection string
+    $dsn="mysql:host=localhost;port=3306;dbname=test;charset=utf8mb4";
+    //PDO - PHP Data Objects
+
+    $pdo = new PDO($dsn, $DB_USER, $DB_PASS);
+
+    $preparedQueyStatement = $pdo->prepare("SELECT * FROM personer");
+
+    //Execute the statement
+    $preparedQueyStatement->execute();
+
+    //Get the result set
+    // $postResult = $preparedQueyStatement->fetchAll();
+    $postResult = $preparedQueyStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    // echo "<pre>";
+    // var_dump($postResult);
+    // echo "</pre>";
+    // die();
 
 }
 
+function pdoAccesUserfriendly()
+{
+    $DB_USER = "daniel";
+    $DB_PASS = "1234567890";
+
+    $databaseConfig = [
+        'host' => 'localhost',
+        'port' => 3306,
+        'dbname' => 'test',
+        'user' => $DB_USER,
+        'password' => $DB_PASS
+    ];
+
+    //echo http_build_query($config);
 
 
+    // $dsn="mysql:host=localhost;port=3306;dbname=test;charset=utf8mb4";
+    $dsn="mysql:host=". $databaseConfig['host'] .";port=" . $databaseConfig['port'] . ";dbname=". $databaseConfig['dbname'] .";charset=utf8mb4";
 
-getAPost(0);
+    // $connection = new PDO($dsn, $DB_USER, $DB_PASS, [
+    //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    // ]);
+
+    $pdo = new PDO(
+        $dsn,
+        $databaseConfig['user'],
+        $databaseConfig['password'],
+        [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]
+    );
+
+    $preparedQueyStatement = $pdo->prepare("SELECT * FROM personer");
+
+    //Execute the statement
+    $preparedQueyStatement->execute();
+
+    //Get the result set
+    // $postResult = $preparedQueyStatement->fetchAll();
+    $postResult = $preparedQueyStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    // echo "<pre>";
+    // var_dump($postResult);
+    // echo "</pre>";
+    // die();
+    foreach($postResult as $aPerson) {
+        echo "Full Name:" . $aPerson['firstname'] . " " . $aPerson['lastname'] . $_GET[''] . "<br>";
+    }
+
+}
+
+pdoAccesUserfriendly();
 
 
 

@@ -28,3 +28,6 @@ var_dump('Hello');
 var_dump(true);
 //String representation
 var_export('Hello');
+
+// exit();
+// error_log();

@@ -8,21 +8,49 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="/formsubmit" method="post">
+    <form action="formhandler.php" method="post">
         <div>
-            <label for="firstname">First Name:</label>
-            <input type="text" name="firstname">
+            <label for="inputfirstname">First Name:</label>
+            <input type="text" name="inputfirstname">
         </div>
         <div>
-            <label for="lastname">Last Name:</label>
-            <input type="text" name="lastname">
+            <label for="inputlastname">Last Name:</label>
+            <input type="text" name="inputlastname">
         </div>
         <div>
-            <label for="age">Age:</label>
-            <input type="text" name="age">
+            <label for="inputage">Age:</label>
+            <input type="text" name="inputage">
+        </div>
+        <div>
+            <label for="inputfavoritepet">Favorite Pet?</label>
+            <select id="favoritepet" name="inputfavoritepet">
+                <option value="none">None</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+            </select>
+        </div>
+        <div>
+            <label for="inputgender">Gender:</label>
+            <input type="radio" id="male" name="inputgender" value="male" checked="checked">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="inputgender" value="female">
+            <label for="female">Female</label>
         </div>
 
-        <input type="button" name="btnsubmit" value="Send form" />
+        <fieldset>
+            <legend>How did you hear about us?</legend>
+            <div>
+                <input type="checkbox" name="chkinstagram" value="INSTAGRAM">
+                <label for="chkinstagram">Instagram</label>
+            </div>
+            <div>
+                <input type="checkbox" name="chkfacebook" value="FACEBOOK">
+                <label for="chkfacebook">Facebook</label>
+            </div>            
+        </fieldset>
+
+        <input type="submit" name="btnsubmit" value="Send form" />
     </form>
     
     
