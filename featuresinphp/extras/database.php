@@ -2,9 +2,11 @@
 
 
 //Object Oriented way, the preffered way
+//RAW SQL
 function insertRecordObjectOrientWayPreparedStatements()
 {
-    $DB_HOST = "localhost";
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
     $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
@@ -45,10 +47,11 @@ function insertRecordObjectOrientWayPreparedStatements()
     $conn->close();
 }
 
-
+//RAW SQL
 function insertRecordObjectOrientWithoutPreparedStatements()
 {
-    $DB_HOST = "localhost";
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
     $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
@@ -79,9 +82,11 @@ function insertRecordObjectOrientWithoutPreparedStatements()
 }
 
 // prepared statements
+//RAW SQL
 function insertRecordToDatabase()
 {
-    $DB_HOST = "localhost";
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
     $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
@@ -123,13 +128,12 @@ function insertRecordToDatabase()
     mysqli_close($conn);
 }
 
-
-
-
 //I find this way a lot cleaner actually
+//RAW SQL
 function updateFirstName($primary_key_id)
 {
-    $DB_HOST = "localhost";
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
     $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
@@ -178,9 +182,11 @@ function updateFirstName($primary_key_id)
 
 }
 
+//RAW SQL
 function deleteAPost($primary_key_id)
 {
-    $DB_HOST = "localhost";
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
     $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
@@ -219,10 +225,11 @@ function deleteAPost($primary_key_id)
     // Close database connection
     $conn->close();
 }
-
+//RAW SQL
 function getAPost($id_post)
 {
-    $DB_HOST = "localhost";
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
     $DB_NAME = "test";
     $DB_USER = "daniel";
     $DB_PASS = "1234567890";
@@ -277,6 +284,44 @@ function getAPost($id_post)
 
 }
 
+//PDO - PHP Data Objects
+//PDO allows you to write database-independent code by providing a unified set of methods
+//to interact with databases.
+
+function pdoAcces()
+{
+    //Data Source Name - String that specifies the details required to connect to a specific database
+    $dsn="mysql:host=localhost;port=3306;";
+    //PDO - PHP Data Objects
+
+    $DB_PORT = "3306";
+    $DB_HOST = "localhost" . ":" . $DB_PORT;
+    $DB_NAME = "test";
+    $DB_USER = "daniel";
+    $DB_PASS = "1234567890";
+    $DB_TABLE = "personer";
+
+}
+
+
+
+
+getAPost(0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //echo "Code execution on database with prepared statements";
 
 
@@ -287,4 +332,4 @@ function getAPost($id_post)
 //updateFirstName(4);                               //U
 //deleteAPost(3);                                   //D
 
-insertRecordObjectOrientWithoutPreparedStatements();
+//insertRecordObjectOrientWithoutPreparedStatements();
