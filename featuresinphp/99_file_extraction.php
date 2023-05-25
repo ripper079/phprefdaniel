@@ -24,7 +24,7 @@ function populateArrayFromCSVFile(){
             $countLines = 0;
             while (($line = fgets($file)) !== false) {
                 //Skip first line as it doesnt contain relevant values
-                if($countLines == 0) 
+                if($countLines === 0) 
                 {
                     // echo "First Line. Column names from DB<br>";
                     $values = str_getcsv($line, ',', '"');

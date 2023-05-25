@@ -1,0 +1,32 @@
+[
+    {
+        "name" : "coffe",
+        "temp" : "hot",
+        "price" : 1.75,
+        "sweet" : false
+    },
+    {
+        "name" : "tea",
+        "temp" : "hot",
+        "price" : 1.4,
+        "sweet" : false
+    },
+    {
+        "name" : "apple juice",
+        "temp" : "cold",
+        "price" : 1.25,
+        "sweet" : true
+    },
+    {
+        "name" : "coffe",
+        "temp" : "hot",
+        "price" : 2.5,
+        "sweet" : false
+    },
+    {
+        "name" : "cappuccino",
+        "temp" : "hot",
+        "price" : 3.25,
+        "sweet" : true
+    }
+]

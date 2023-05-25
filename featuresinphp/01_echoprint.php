@@ -6,8 +6,8 @@ declare(strict_types=1);
 $countries = "Sweden, Finland, Poland, Thailand";
 
 //Lets start with the basics
-echo 'Hello', ' ', ' PHP', ' lets have fun<br>';
-echo "Hello", " ", " PHP", " lets have more fun<br><br>";
+echo 'Hello', ' ', ' PHP', ' lets have fun<br>';            //Dont work
+echo "Hello", " ", " PHP", " lets have more fun<br><br>";   //WORKS good
 
 //Countries that rock
 echo 'Countries that rock $countries<br>';
