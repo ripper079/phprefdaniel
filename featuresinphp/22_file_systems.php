@@ -31,5 +31,5 @@ mkdir("foobardir");
 //Delete directory - Directory must be empty for this to work
 rmdir("foobardir");
 
-if ()
+
 ?>

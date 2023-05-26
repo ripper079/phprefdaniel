@@ -262,6 +262,7 @@ function getAPost($id_post)
     );
 
     // Execute the prepared statement
+    /*
     if ($stmt->execute()) {
         echo "Post reading successfully<br>";
 
@@ -279,6 +280,27 @@ function getAPost($id_post)
 
     } else {
         echo "Error reading post: " . $stmt->error;
+    }
+    */
+    try {
+        if ($stmt->execute()) {
+            echo "Post reading successfully<br>";
+
+            // Bind the result variables
+            $stmt->bind_result($firstname, $lastname, $country);
+            // Fetch the values
+            if ($stmt->fetch()) {
+                echo "Firstname: " . $firstname . "<br>";
+                echo "Lastname: " . $lastname . "<br>";
+                echo "Country: " . $country . "<br>";
+            } else {
+                echo "No post found";
+            }
+        } else {
+            echo "Error reading post: " . $stmt->error;
+        }
+    } catch (Exception $e) {
+        echo "An error occurred: " . $e->getMessage() . "<br>";
     }
 
 
@@ -370,10 +392,95 @@ function pdoAccesUserfriendly()
 
 }
 
-pdoAccesUserfriendly();
+
+function getConnectionConfigDigitalOcean()
+{
+    $DB_USER = "daniel";
+    $DB_PASS = "12345";
+    $DB_PORT = 3306;
+
+    $databaseConfig = [
+        'port' => $DB_PORT,
+        'host' => '64.226.95.103' . ':' . $DB_PORT,
+        'dbname' => 'db_php_train',
+        'user' => $DB_USER,
+        'password' => $DB_PASS
+    ];
+
+    return $databaseConfig;
+}
 
 
+function addPostToDigitalOceanDB()
+{
+    /*
+    $DB_PORT = "3306";
+    $DB_HOST = "64.226.95.103" . ":" . $DB_PORT;
+    $DB_NAME = "db_php_train";
+    $DB_USER = "daniel";
+    $DB_PASS = "12345";
+*/
+    $sqlConnectionConfig = getConnectionConfigDigitalOcean();
+    $DB_TABLE = "employees";
 
+    //Create a connection
+    //$conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+    $conn = mysqli_connect($sqlConnectionConfig['host'], $sqlConnectionConfig['user'], $sqlConnectionConfig['password'], $sqlConnectionConfig['dbname']);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $firstName = "Pelle";
+    $lastName = "Svanslös";
+    $email = "pelle@hotmail.com";
+    $hiredate = "2019-04-12";
+    $salary = "1999.14";
+    $department ="IT";
+
+    try {
+        //Prepared statement, prevent SQL Injection
+        $stmt = mysqli_prepare($conn, "INSERT INTO " . $DB_TABLE . " (first_name, last_name, email, hire_date, salary, department) VALUES (?, ?, ?,?, ?, ?)");
+        //Tricky, parameters must match types in table, i=int;d=float,s=string,b=blob
+        mysqli_stmt_bind_param(
+            $stmt,
+            "ssssds",
+            $firstName,
+            $lastName,
+            $email,
+            $hiredate,
+            $salary,
+            $department
+        );
+
+        // Execute the prepared statement
+        // if (mysqli_stmt_execute($stmt)) {
+        //     echo "New record inserted successfully<br>";
+        // } else {
+        //     echo "Error(executing prepared statement): " . mysqli_error($conn) . "<br>";
+        // }
+
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "New record inserted successfully<br>";
+        } else {
+            echo "Error(executing prepared statement): " . mysqli_error($conn) . "<br>";
+        }
+    } catch (Exception $e) {
+        echo "Error occurred=" . $e->getMessage() . "with code " . $e->getCode() . "<br>";
+    }
+
+
+    // Close the prepared statement
+    mysqli_stmt_close($stmt);
+
+    // Close the database connection
+    mysqli_close($conn);
+}
+
+//pdoAccesUserfriendly();
+
+echo "Hello World";
+addPostToDigitalOceanDB();
 
 
 

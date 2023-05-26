@@ -93,6 +93,8 @@ class User
 
 class employee extends User
 {
+    private string $title;
+
     public function __construct($name, $email, $password, $title)
     {
         parent::__construct($name, $email, $password);
@@ -108,9 +110,10 @@ class employee extends User
 //$employee1 = new employee('John', 'johndoe@gmail.com', '123456', 'Manager');
 //echo $employee1->getTitle();
 //Static call
-echo "<br>" . User::descriptionRulesForUser() . "<br>";
+//echo "<br>" . User::descriptionRulesForUser() . "<br>";
 
 //custom objects - JS warning...
+/*
 $objtemp = new \stdClass();
 
 $objtemp->middlename = "Mikael";
@@ -119,3 +122,6 @@ echo "Creating public properties at runtime...<br>";
 var_dump($objtemp);
 echo "Done Creating public properites at runtime...<br>";
 echo "Acces a newly created property" . $objtemp->xxx . "<br>";
+*/
+
+

@@ -1,6 +1,7 @@
 <?php
+
 //enforce strict typing in PHP functions
-declare(strict_types = 1); 
+declare(strict_types=1);
 
 $juicyFruits=['Pinapple', 'Banana', 'Raspberry'];
 //Get Length
@@ -8,12 +9,9 @@ echo count($juicyFruits) . "<br>";
 
 //Search array, in_array return true/false
 $searchForFruit = 'Pinapple';
-if (in_array($searchForFruit, $juicyFruits))
-{
+if (in_array($searchForFruit, $juicyFruits)) {
     echo "The fruit $searchForFruit is present in the array<br>";
-}
-else 
-{
+} else {
     echo "No matching fruit<br>";
 }
 
@@ -31,14 +29,14 @@ print_r($juicyFruits);
 echo "<br><br>";
 
 //Split to 3 chunks that means that each array contain max 2 elements(independet of numbers of chunks), creates a 2D array
-//Important when indexing chunkedArrayFruits[a][b] that be can ONLY be 0 or 1 
+//Important when indexing chunkedArrayFruits[a][b] that be can ONLY be 0 or 1
 $chunkedArrayFruits = array_chunk($juicyFruits, 3);
 $countArrays = count($chunkedArrayFruits);
 echo 'Number of array after chunking ' . $countArrays . '<br>';
 
-for ($i = 0; $i < $countArrays; ++$i){
+for ($i = 0; $i < $countArrays; ++$i) {
     $countElementsInCurrentArray = count($chunkedArrayFruits[$i]);
-    for ($j =0; $j < $countElementsInCurrentArray; ++$j){
+    for ($j =0; $j < $countElementsInCurrentArray; ++$j) {
         echo 'Element[' . $i . '][' . $j . ']=' . $chunkedArrayFruits[$i][$j] . ' , ';
     }
     echo '<br>';
@@ -117,7 +115,7 @@ $evenNumber = range(10, 60, 2);
 print_r($evenNumber);
 echo "<br><br>";
 //Map for each item
-$evenNumberString = array_map(function($aNumber){
+$evenNumberString = array_map(function ($aNumber) {
     return "Number ${aNumber}";
 }, $evenNumber);
 //The arrow function
@@ -125,11 +123,14 @@ $evenNumberString = array_map(function($aNumber){
 print_r($evenNumberString);
 echo "<br><br>";
 //Create a array based on filtering
-$arraysGreaterThan20 = array_filter($evenNumber, fn($aNumber) => $aNumber > 20);
+$arraysGreaterThan20 = array_filter($evenNumber, fn ($aNumber) => $aNumber > 20);
 print_r($arraysGreaterThan20);
 echo "<br><br>";
 
-$totalSumOfEvenNumbers = array_reduce($evenNumber, fn($carry, $number)=> $carry+$number);
+$totalSumOfEvenNumbers = array_reduce($evenNumber, fn ($carry, $number) => $carry+$number);
 var_dump($totalSumOfEvenNumbers);
 echo "<br><br>";
-?>
+
+$delimeter = ',';
+$seperateWords = \explode($delimeter, 'hello,world, how are you');
+var_dump($seperateWords);

@@ -64,13 +64,27 @@ var_dump($x & $y);
 */
 
 //Array operator ( + == === != <> !===)
+/*
 $x = ['a', 'b', 'c'];
 $y = ['d', 'e', 'f'];
 $z = $x + $y;
 var_dump($z);
+*/
+
 
 //Execution Operators (``)
 //Type Operators (instanceof)
 //Nullsafe Operators (?) - PHP 8
+
+//Null Coalescing operator
+$alienName = null;
+$value = $alienName ?? "Undefined value";
+
+//Nullsafe Operator ?, e.i
+//Shorcircuit everything. if something return null, in this case getCustomer() everything on the right side will get discarded
+//$transaction->getCustomer()?->aymentProfile->id;
+
+var_dump($alienName);
+var_dump($value);
 
 ?>
