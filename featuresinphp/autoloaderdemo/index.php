@@ -21,13 +21,12 @@ spl_autoload_register(function ($class) {
         $buildBasePath = $buildBasePath . $parts[$i] . DIRECTORY_SEPARATOR;
     }
 
-    $completetPath = $buildBasePath . $endPath;
-    echo $completetPath;
+    $completePath = $buildBasePath . $endPath;
+    //echo $completePath;
+    require $completePath;
 });
 
 
 use Autoloaderdemo\Notification\Email;
 
 new Email();
-
-//echo __DIR__;
