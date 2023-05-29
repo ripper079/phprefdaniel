@@ -10,8 +10,10 @@
 <body>
     <form action="formhandler.php" method="post">
         <div>
+            <!-- The required attribute dont disable that a form can be submitted even if it seems so...  -->
+            <!-- Just an illusion, go into developer tool and remove the required atribut -->
             <label for="inputfirstname">First Name:</label>
-            <input type="text" name="inputfirstname">
+            <input required type="text" name="inputfirstname">
         </div>
         <div>
             <label for="inputlastname">Last Name:</label>
@@ -20,6 +22,14 @@
         <div>
             <label for="inputage">Age:</label>
             <input type="text" name="inputage">
+        </div>
+        <div>
+            <label for="inputusername">Username:</label>
+            <input type="text" name="inputusername">
+        </div>
+        <div>
+            <label for="inputpassword">Password:</label>
+            <input type="password" name="inputpassword">
         </div>
         <div>
             <label for="inputfavoritepet">Favorite Pet?</label>

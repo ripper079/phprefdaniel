@@ -27,6 +27,9 @@ class User
     //Actually a constant
     public const MAX_USER = 20;
 
+    //Belong to the class
+    public static int $count;
+
     // The constructor is called whenever an object is created from the class.
     // We pass in properties to the constructor from the outside.
     public function __construct($name, $email, $password)
@@ -123,5 +126,3 @@ var_dump($objtemp);
 echo "Done Creating public properites at runtime...<br>";
 echo "Acces a newly created property" . $objtemp->xxx . "<br>";
 */
-
-

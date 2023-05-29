@@ -479,8 +479,8 @@ function addPostToDigitalOceanDB()
 
 //pdoAccesUserfriendly();
 
-echo "Hello World";
-addPostToDigitalOceanDB();
+//echo "Hello World";
+//addPostToDigitalOceanDB();
 
 
 
