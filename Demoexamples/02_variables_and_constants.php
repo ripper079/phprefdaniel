@@ -25,8 +25,39 @@ MISC
     - Constants - A value that is not changed. Is in the global scope
 */
 
+/* Constants */
+/**
+ * The first way
+ */
 define("LAST_PLANET_OUR_SOLAR_SYSTEM", "Pluto");
+$lastPlanet = defined("LAST_PLANET_OUR_SOLAR_SYSTEM");  //return 1 if defined
+//var_dump($lastPlanet);
+if ($lastPlanet){
+    //Observe that the $ is NOT used in conjunction with constants
+    echo "Last planet is defined and the planet is " . LAST_PLANET_OUR_SOLAR_SYSTEM . "<br>";
+}
+else{
+    echo "Last planet is NOT defined<br>";
+}
+//var_dump(defined("UNKNOWN_PLANET"));
+if (defined("UNKNOWN_PLANET")){
+    echo "Unknown planet is defined<br>";
+}
+else{
+    echo "Unknown planet is NOT defined<br>";
+}
 
+/* Constants */
+/**
+ * The Second way way
+ */
+
+ const OUR_PLANET_SOLAR_SYSTEM = "Earth";
+ echo "Our planet is OUR_PLANET_SOLAR_SYSTEM" . "<br>";
+
+ /**
+  * Variable declaration
+  */
 $myFirstName = "Daniel";
 $myLastName="Oikarainen";
 $myAge=43;

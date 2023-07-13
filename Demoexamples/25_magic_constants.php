@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * These are predefined constants that have actually different values depending how they are use in the code
+ */
+
+
+echo "PHP Version:" . PHP_VERSION . "<br>";
+
 echo "Line: " . __LINE__ . "<br>";
 echo "File: " . __FILE__ . "<br>";
 echo "Directory: " . __DIR__ . "<br>";
@@ -8,6 +15,7 @@ echo "Class: " . __CLASS__ . "<br>";
 echo "Trait: " . __TRAIT__ . "<br>";
 echo "Method: " . __METHOD__ . "<br>";
 echo "Namespace: " . __NAMESPACE__ . "<br>";
+
 
 /*
     __LINE__: The current line number in the script.
