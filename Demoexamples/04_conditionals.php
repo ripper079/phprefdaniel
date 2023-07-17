@@ -1,24 +1,33 @@
 <?php
+
 //enforce strict typing in PHP functions
-declare(strict_types = 1); 
+declare(strict_types=1);
 
 // $points = 10;
-// if ($points < 2)
-// {
+// if ($points < 2){
 //     echo 'You failed';
 // }
-// elseif($points < 5)
-// {
+// elseif($points < 5){
 //     echo 'You passed';
 // }
-// elseif ($points <= 9)
-// {
+// elseif ($points <= 9){
 //     echo 'Passed with destinction';
 // }
-// else 
-// {
+// else {
 //     echo 'PERFECT';
 // }
+
+//There is a variation of this that uses the : (colon). They colon make a pair of braces {} so that the code gets more readable
+$points = 10;
+if ($points < 2):
+    echo 'You failed';
+elseif($points < 5):
+    echo 'You passed';
+elseif ($points <= 9):
+    echo 'Passed with destinction';
+else:
+    echo 'PERFECT';
+endif;
 
 // $month = 3;
 // switch ($month) {
@@ -73,7 +82,7 @@ if ($num === $str) {
 $bb = 1;
 $cc = 4;
 
-$result = match ($bb){
+$result = match ($bb) {
     1 => "Variable is equal to one!",
     2 => "Variable is equal to two!",
     3 => "Variable is equal to three!",
@@ -81,5 +90,3 @@ $result = match ($bb){
     default => "None match at all"
 };
 echo $result;
-
-?>

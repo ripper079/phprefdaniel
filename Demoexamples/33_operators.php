@@ -1,6 +1,9 @@
 <?php
 
+//ALL Operators
 //https://www.php.net/manual/en/language.operators.php
+//Operator Precedence
+//https://www.php.net/manual/en/language.operators.precedence.php
 
 //Arithmetic operators (  +  -  /  %  **)    // % = Modulo , ** = Exponentiation e.i 2^7 =  2 ** 7
 //Assignment operators (  =  +=  -=  *=  /=  %=  **=)
