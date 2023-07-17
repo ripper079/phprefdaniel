@@ -29,6 +29,8 @@ else:
     echo 'PERFECT';
 endif;
 
+
+//Switch make loose comparison, aka implicit type conversion
 // $month = 3;
 // switch ($month) {
 //     case 1:
@@ -54,7 +56,7 @@ endif;
 // }
 
 //Be careful when using =, == and ===
-// = is assingment
+// = is assignment
 // == is comparison without considering datatypes
 // === is comparison with considering datatypes
 $num = 5;
@@ -78,9 +80,8 @@ if ($num === $str) {
 }
 */
 
-//Match
+//match conditional make strict comparison! Both sides are expressions but right side gets returned and may be stored in a variable
 $bb = 1;
-$cc = 4;
 
 $result = match ($bb) {
     1 => "Variable is equal to one!",
