@@ -3,6 +3,8 @@
 //enforce strict typing in PHP functions
 declare(strict_types=1);
 
+//https://www.php.net/manual/en/ref.array.php
+
 $juicyFruits=['Pinapple', 'Banana', 'Raspberry'];
 //Get Length
 echo count($juicyFruits) . "<br>";
