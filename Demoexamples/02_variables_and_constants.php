@@ -4,6 +4,8 @@
 // only a value corresponding exactly to the type declaration will be accepted; otherwise a TypeError will be thrown
 declare(strict_types=1);
 
+/* Constants */
+
 /* --------- PHP Data Types --------- */
 /*
 Scalar Types
@@ -25,8 +27,9 @@ Special  Types
 MISC
     - Constants - A value that is not changed. Is in the global scope
 */
+/* Static variables */
 
-/* Constants */
+
 /**
  * The first way
  */
@@ -59,6 +62,7 @@ echo "Our planet is " . OUR_PLANET_SOLAR_SYSTEM . "<br>";
  */
 
 
+//Globally declared in this file 
 $completed = true;              //bool
 $score = 39;                    //int
 $price = 24.99;                 //float
@@ -88,3 +92,23 @@ $trickySum = '5' + '31';
 
 //var_dump($sum);
 //var_dump($trickySum);
+
+//Demonstrates scope of variables
+function foo(){
+    //echo "Inside foo. " . $price . "</br>";       //This will not work, no access to global scope
+    global $greeting;                               //Now you have access to variable defined in the global scope
+    echo "Global variable is=" . $greeting . "<br />";  //Now it works
+    echo "Access global variable through php associate array GLOBAL=" . $GLOBALS['score'] . "<br />";   //Aka superglobals
+}
+
+function fooStatic(){
+    static $counterHit = 0;             //Only initialized once and the scope is limited to this function
+    $counterHit++;
+    echo "Number of times invoking this function=" . $counterHit . "<br />";
+
+}
+
+foo();
+fooStatic();
+fooStatic();
+fooStatic();

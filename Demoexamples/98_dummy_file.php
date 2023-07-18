@@ -1,5 +1,6 @@
 <?php
 
+$testLocalScope = 69;
 
 echo "Hello from dummy file<br />";
 
