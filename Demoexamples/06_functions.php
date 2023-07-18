@@ -10,7 +10,7 @@ declare(strict_types=1);
 //Global variables demonstration
 //Spread/splat/unpack/eclipse operator used
 
-
+$quadrupleFactor = 4;
 //By default values are passed by value. If you want to pass value by reference then you need to precede the variable with &
 //ei
 /*
@@ -94,7 +94,7 @@ function doubleNumbers(int $a = 100): int{   //return value is of type int
 //Local scope
 $baseSalary = 53000;
 echo "Double the salary $baseSalary is " . doubleNumbers($baseSalary) . "<br>";
-echo "Double default value " . doubleNumbers() . "<br>";
+echo "Double default value " . doubleNumbers() . "<br><br>";
 
 
 
@@ -142,21 +142,37 @@ echo "Using named arguments, the sum difference is= " . $diffSubtraction . "<br 
 $subtractionArray = ['b' => 500, 'a' => 50];        //Even possible with associative arrays!Keys must match parameter names of function
 $diffSubtraction=subNumbers(...$subtractionArray);  //But spread operator is needed
 echo "Using named arguments with arrays the sum difference is= " . $diffSubtraction . "<br />";
+echo "<br />";
 
-//Function expression
+
+
+//VARIABLE function (call a function through a variable)
+$varToFunc = 'sumAllNewWay';
+//Invoke it
+echo "Call a function through a variable function= " . $varToFunc(300, 100) . "<br />";
+
+//Function expression aka Anonymous functions (no name) 
+//Also Lambda functions????
 function () {
     return "Function expression";
-};
+};          // <- Needs to be ended with a semicolon!!!
 
-//Anonymous functions (no name)
-//Aka lambda function
-//Aka Closure
-$multiply = function (int $a, int $b): int {
-    return $a * $b;
-};
+//Closure - A (kind of) function expression that utilizes variables defined outside of its scope
+//in this case $quadrupleFactor. Its passed by value so the outer $quadrupleFactor is NOT reflected to changes made inside this function
+$multiply = function (int $a, int $b) use($quadrupleFactor) :  int {
+    //$quadrupleFactor = 10;        //This changes only takes places inside the function
+    return $a * $b * $quadrupleFactor;
+};              // <- Needs to be ended with a semicolon!!!
+echo $multiply(12, 25000) . " year salary<br>";
 
-echo $multiply(12, 33000) . " year salary<br>";
-
-//One liner, aka arrow function
-$squareItUp = fn (int $a): int => $a*$a;
+//Arrow function, aka "short closures. Pay attention that keyword use is not needed here. Arrow functions have access to 'outside' variables.
+//Arrow function a single line expressions, aka single line code
+$squareItUp = fn (int $a): int => $a*$a;            //With type hinting
+$greetingPerson = fn (string $name, int $age): string => "Hello " . $name . ", your age is " . $age . ". Favorite number " . $quadrupleFactor; 
 echo $squareItUp(8) . "<br>";
+echo $greetingPerson("Daniel", 43) . "<br />";
+
+
+
+
+
