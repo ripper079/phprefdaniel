@@ -25,7 +25,7 @@ echo "<br>";
 array_push($juicyFruits, 'Apple', 'Prum', 'blueberry', 'strawberry', 'banana', 'raspberry');
 print_r($juicyFruits);
 echo "<br>";
-//Add(at the begining of the array)
+//Add(at the beginning of the array)
 array_unshift($juicyFruits, 'Mango');
 print_r($juicyFruits);
 echo "<br><br>";
@@ -108,7 +108,7 @@ echo $lookUpArray['19791216-4857'] . " Count=" . count($lookUpArray) . "<br>";
 //Return an array of all the keys
 //print_r(array_keys($lookUpArray));
 echo "<br><br>";
-//Corrresponding the values
+//Corresponding the values
 //print_r(array_values($lookUpArray));
 echo "<br><br>";
 //Creates an 'dynamic' array starts from 10 and ends <=60 with step of 2
@@ -136,3 +136,12 @@ echo "<br><br>";
 $delimeter = ',';
 $seperateWords = \explode($delimeter, 'hello,world, how are you');
 var_dump($seperateWords);
+
+
+function prettyPrintArray(array $value): void
+{
+    echo '<pre>';
+    print_r($value);
+    echo '</pre>'
+}
+
