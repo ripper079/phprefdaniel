@@ -1,0 +1,4 @@
+ArtikelNummerr, Beskrivning, Pris
+1234, Lampa, 1200
+431, Dator, 32000
+12, Mjölk, 19

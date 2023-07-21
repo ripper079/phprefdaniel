@@ -1,4 +1,4 @@
-Brad
-Sara
-Mike
-John
+Brad is a boy
+Sara is girl
+Mike is a man
+John is a boy
