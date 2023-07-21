@@ -16,6 +16,12 @@ abstract class Animal
         self::$COUNTER_ANIMAL++;
     }
 
+    //Destructor
+    public function __destruct()
+    {
+        echo "De-constructor called for " . __CLASS__ . PHP_EOL;    
+    }
+
     //Forces the sub class to implement this method
     abstract public function speak(): void;
     // public function speak(): void
