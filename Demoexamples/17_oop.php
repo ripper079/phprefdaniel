@@ -5,10 +5,12 @@
 
   PHP har a generic class implementation called stdClass that you can use to create generic objects or you could cast you variable. Works like a base class when no class i defined
 
-  The widle used recommendation is to name your class the same as the filename with php extension. A single class per file is recommended.
+  The widely used recommendation is to name your class the same as the filename with php extension. A single class per file is recommended.
   Create an object(instance) with keyword new
 
   P.S Remember that this file is an example file!
+
+  stdClass Demonstrated too
 */
 
 class User
@@ -126,3 +128,75 @@ var_dump($objtemp);
 echo "Done Creating public properites at runtime...<br>";
 echo "Acces a newly created property" . $objtemp->xxx . "<br>";
 */
+
+
+# stdClass
+$myPerson = new stdClass();
+$myPerson->firstName = "John";
+$myPerson->lastName = "Andersson";
+$myPerson->age = 67;
+
+echo "FirstName= " . $myPerson->firstName . ", Lastname=" . $myPerson->lastName . ", age=" . $myPerson->age ."<br>";
+
+
+//Encoded json object
+$myPersonEncoded = json_encode($myPerson);     // ->  "{"firstName":"John","lastName":"Andersson","age":67}"
+
+
+//Convert into an associate array
+$myPersonArray = json_decode($myPersonEncoded, true);     //->    Array ( [firstName] => John [lastName] => Andersson [age] => 67 )
+//A stdClass array
+//$myPersonArray = json_decode($myPersonEncoded);             //->    Class Object ( [firstName] => John [lastName] => Andersson [age] => 67 )
+var_dump($myPersonArray);            
+echo "<br><br>";
+
+
+$str = '{"one":1, "two": 2, "three": 3}';           //Like an intermediate format
+$assoc = json_decode($str, true);                   //Associate array   ->   array(3) { ["a"]=> int(1) ["b"]=> int(2) ["c"]=> int(3) } 
+var_dump($assoc);
+echo "<br>";
+$arr = json_decode($str,false);                     //stdClass ->    object(stdClass)#2 (3) { ["a"]=> int(1) ["b"]=> int(2) ["c"]=> int(3) } 
+var_dump($arr);
+echo "<br><br>";
+
+//Back to original stdClass
+$copyPerson = (object)$assoc;
+var_dump($copyPerson);
+echo $copyPerson->one . " comes before " . $copyPerson->{"two"} . " !!!";       //Both are valid be latter is more confusing
+
+$jsonContentComplex = '{
+    "people": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "age": 30,
+        "email": "john.doe@example.com",
+        "address": {
+          "street": "123 Main Street",
+          "city": "New York",
+          "country": "USA"
+        },
+        "hobbies": ["Reading", "Traveling"]
+      },
+      {
+        "id": 2,
+        "name": "Alice Smith",
+        "age": 25,
+        "email": "alice.smith@example.com",
+        "address": {
+          "street": "456 Elm Avenue",
+          "city": "Los Angeles",
+          "country": "USA"
+        },
+        "hobbies": ["Painting", "Hiking", "Cooking"]
+      }
+    ]
+  }';
+  
+  $associateArrayComplex = json_decode($jsonContentComplex, true);
+
+echo '<pre>';
+print_r( $associateArrayComplex);
+echo '</pre>';
+
+echo $associateArrayComplex["people"][0]["email"];
