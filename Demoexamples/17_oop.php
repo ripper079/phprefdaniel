@@ -132,7 +132,7 @@ $myPerson->firstName = "John";
 $myPerson->lastName = "Andersson";
 $myPerson->age = 67;
 
-echo "FirstName= " . $myPerson->firstName . ", Lastname=" . $myPerson->lastName . ", age=" . $myPerson->age ."<br>";
+# echo "FirstName= " . $myPerson->firstName . ", Lastname=" . $myPerson->lastName . ", age=" . $myPerson->age ."<br>";
 
 
 //Encoded json object
@@ -143,22 +143,22 @@ $myPersonEncoded = json_encode($myPerson);     // ->  "{"firstName":"John","last
 $myPersonArray = json_decode($myPersonEncoded, true);     //->    Array ( [firstName] => John [lastName] => Andersson [age] => 67 )
 //A stdClass array
 //$myPersonArray = json_decode($myPersonEncoded);             //->    Class Object ( [firstName] => John [lastName] => Andersson [age] => 67 )
-var_dump($myPersonArray);            
-echo "<br><br>";
+#var_dump($myPersonArray);            
+#echo "<br><br>";
 
 
 $str = '{"one":1, "two": 2, "three": 3}';           //Like an intermediate format
 $assoc = json_decode($str, true);                   //Associate array   ->   array(3) { ["a"]=> int(1) ["b"]=> int(2) ["c"]=> int(3) } 
-var_dump($assoc);
-echo "<br>";
+#var_dump($assoc);
+#echo "<br>";
 $arr = json_decode($str,false);                     //stdClass ->    object(stdClass)#2 (3) { ["a"]=> int(1) ["b"]=> int(2) ["c"]=> int(3) } 
-var_dump($arr);
-echo "<br><br>";
+#var_dump($arr);
+#echo "<br><br>";
 
 //Back to original stdClass
 $copyPerson = (object)$assoc;
-var_dump($copyPerson);
-echo $copyPerson->one . " comes before " . $copyPerson->{"two"} . " !!!";       //Both are valid be latter is more confusing
+#var_dump($copyPerson);
+#echo $copyPerson->one . " comes before " . $copyPerson->{"two"} . " !!!";       //Both are valid be latter is more confusing
 
 $jsonContentComplex = '{
     "people": [
@@ -198,9 +198,26 @@ $jsonContentComplex = '{
 // echo $associateArrayComplex["people"][0]["email"];
 
 
-//Anonymous Classes (classes with no names)
-$anonObj = new class {
+//ANONYMOUS Classes (classes with no names). PHP automatically actually creates a name for the class :D (PS Type hinting is not an option ofcource)
+//Possible to use class inside a class, nested
+//Work the same as an regular class
+$anonObj = new class("Daniel", 43, true) {
 
+  private string $name;
+  private int $age;
+  private bool $male;
+  public function __construct(string $pName, int $pAge, bool $pMale)
+  {
+    $this->name = $pName;
+    $this->age = $pAge;
+    $this->age = $pMale;
+  }
+
+  public function getName():string
+  {
+    return $this->name;
+  }
+ 
 };
 
-var_dump($anonObj);
+echo "Name is=" . $anonObj->getName();
