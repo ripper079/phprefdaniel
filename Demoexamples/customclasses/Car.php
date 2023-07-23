@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Demonstrates different errors outputing depending on type hinting in the class
+ */
+
 declare(strict_types=1);
 
 class Car 

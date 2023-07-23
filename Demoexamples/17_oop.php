@@ -2,15 +2,12 @@
 
 /*
   From PHP5 onwards you can write PHP in either a procedural or object oriented way. OOP consists of classes that can hold "properties" and "methods". Objects can be created from classes.
-
-  PHP har a generic class implementation called stdClass that you can use to create generic objects or you could cast you variable. Works like a base class when no class i defined
-
+  
   The widely used recommendation is to name your class the same as the filename with php extension. A single class per file is recommended.
   Create an object(instance) with keyword new
-
-  P.S Remember that this file is an example file!
-
-  stdClass Demonstrated too
+    
+  PHP har a generic class implementation called stdClass that you can use to create generic objects or you could cast you variable. Works like a generic simple class when no class i defined
+  Anonymous classes  
 */
 
 class User
@@ -129,7 +126,6 @@ echo "Done Creating public properites at runtime...<br>";
 echo "Acces a newly created property" . $objtemp->xxx . "<br>";
 */
 
-
 # stdClass
 $myPerson = new stdClass();
 $myPerson->firstName = "John";
@@ -195,8 +191,16 @@ $jsonContentComplex = '{
   
   $associateArrayComplex = json_decode($jsonContentComplex, true);
 
-echo '<pre>';
-print_r( $associateArrayComplex);
-echo '</pre>';
+// echo '<pre>';
+// print_r( $associateArrayComplex);
+// echo '</pre>';
 
-echo $associateArrayComplex["people"][0]["email"];
+// echo $associateArrayComplex["people"][0]["email"];
+
+
+//Anonymous Classes (classes with no names)
+$anonObj = new class {
+
+};
+
+var_dump($anonObj);
