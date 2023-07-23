@@ -11,32 +11,32 @@
 // echo 10 % 3 . "<br>";                    //Modulo
 // echo 5 **3 . "<br>";                    //To power of
 
-//Asignment ooperator
+//Assignment operator
 // $aa = 2;
 // $aa *= 4;       //$aa = $aa*4
 // echo $aa;
 
-//Comparison operators
 $a = 4;
 $b = "4";
 
+//Comparison operators
 if ($a == $b){
 
 }
 
-//Checks also data type when 3 characters
+//Checks also data type aka identity operator
 if ($a === $b){
     
 }
 //Comparison Operators
-//!=, <>, !== , < , >, <=, >=, <=>
+//!=, <>, !== , < , >, <=, >=, <=>, ==, ===
 
-//Logical operators - Short Cicuiting
+//Logical operators - Short Circuiting
 //https://www.php.net/manual/en/language.operators.logical.php
 
 
 //Error Control Operator (@) 
-    //Caution danger - Supresses error messages - Toogle between to se difference
+    //Caution danger - Suppresses error messages - Toogle between to se difference
 //$x = file("this:file:should:exists.txt");
 //$x = @file("this:file:should:exists.txt");
 
@@ -51,7 +51,7 @@ $p--;       //Postfix - Decrement by one
 $p +=7      //Increment by 7
 */
 
-//Bitwise operators - &(and operator), |(or operator),  ^(xor operator), ~(negatition operator), <<(shift left operator), >>(shift right operator),
+//Bitwise operators - &(and operator), |(or operator),  ^(xor operator), ~(negation operator), <<(shift left operator), >>(shift right operator),
 /*
 $x = 6;
 $y = 3;
