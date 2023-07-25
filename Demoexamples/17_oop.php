@@ -8,6 +8,7 @@
     
   PHP har a generic class implementation called stdClass that you can use to create generic objects or you could cast you variable. Works like a generic simple class when no class i defined
   Anonymous classes  
+  Constructor property promotion php >= 8
 */
 
 class User
@@ -99,7 +100,7 @@ class employee extends User
 
     public function __construct($name, $email, $password, $title)
     {
-        parent::__construct($name, $email, $password);
+        parent::__construct($name, $email, $password);  //Call base class
         $this->title = $title;
     }
 
@@ -221,3 +222,31 @@ $anonObj = new class("Daniel", 43, true) {
 };
 
 echo "Name is=" . $anonObj->getName();
+
+
+//CONSTRUCTOR PROPERTY PROMOTION
+class CustomerCPR
+{
+  public function __construct(
+    public string $name, 
+    public string $email, 
+    public DateTimeImmutable $birth_date,
+) {}
+}
+
+#is  equivalent to
+/*
+class CustomerCPR
+{
+  public string $name;
+  public string $email;
+  public DateTimeImmutable $birth_date;
+
+  public function __construct(string $name, string $email,  DateTimeImmutable $birth_date)
+  {
+      $this->name = $name;
+      $this->email = $email;
+      $this->birth_date = $birth_date;
+  }
+}
+*/
