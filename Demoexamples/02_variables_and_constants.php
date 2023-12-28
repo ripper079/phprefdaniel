@@ -57,12 +57,17 @@ if (defined("UNKNOWN_PLANET")) {
 const OUR_PLANET_SOLAR_SYSTEM = "Earth";
 echo "Our planet is " . OUR_PLANET_SOLAR_SYSTEM . "<br>";
 
+function testFooDemo01()
+{
+    //const OUR_PLANET_SOLAR_SYSTEM = "Earth";              //Do NOT work
+}
+
 /**
  * Variable declaration
  */
 
 
-//Globally declared in this file 
+//Globally declared in this file
 $completed = true;              //bool
 $score = 39;                    //int
 $price = 24.99;                 //float
@@ -94,14 +99,16 @@ $trickySum = '5' + '31';
 //var_dump($trickySum);
 
 //Demonstrates scope of variables
-function foo(){
+function foo()
+{
     //echo "Inside foo. " . $price . "</br>";       //This will not work, no access to global scope
     global $greeting;                               //Now you have access to variable defined in the global scope
     echo "Global variable is=" . $greeting . "<br />";  //Now it works
     echo "Access global variable through php associate array GLOBAL=" . $GLOBALS['score'] . "<br />";   //Aka superglobals
 }
 
-function fooStatic(){
+function fooStatic()
+{
     static $counterHit = 0;             //Only initialized once and the scope is limited to this function
     $counterHit++;
     echo "Number of times invoking this function=" . $counterHit . "<br />";

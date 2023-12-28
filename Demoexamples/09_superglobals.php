@@ -1,5 +1,7 @@
 <?php
 /*
+  SuperGlobal = Built in variables that are always available within ALL scopes throughout your php code
+
   $GLOBALS - A superglobal variable that holds information about any variables in global scope.
 
   $_GET - Contains information about variables passed through a URL or a form.
@@ -18,7 +20,7 @@
 
 //var_dump($_SERVER);
 
-//Extract data from URL - Simulate this be input extra data in URL with e.i      ?food=pizza&eyecolor=blue
+//Extract data from URL - Simulate this be input extra data in URL with e.i      ?food=pizza&eyecolor=bluey
 echo $_GET["food"] . "<br>";
 echo $_GET["eyecolor"] . "<br>";
 
@@ -28,6 +30,8 @@ echo $_GET["eyecolor"] . "<br>";
 define('MY_FULLNAME_CONSTANT', 'DANIEL OIKARAINEN');
 //Here it is OK
 $globalCarName = "Toyotaaaa";
+
+print_r($_SERVER);
 
 
 ?>
@@ -53,10 +57,7 @@ $globalCarName = "Toyotaaaa";
     <li>Client Info: <?php echo $_SERVER['HTTP_USER_AGENT']; ?></li>
     <li>Remote Address: <?php echo $_SERVER['REMOTE_ADDR']; ?></li>
     <li>Remote Port: <?php echo $_SERVER['REMOTE_PORT']; ?></li>    
-
-
-
-    <li>Golbal scope variable = <?= $GLOBALS['globalCarName'] ?> </li>
+    <li>Global scope variable = <?= $GLOBALS['globalCarName'] ?> </li>
   </ul>
 </body>
 </html>

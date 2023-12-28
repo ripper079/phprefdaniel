@@ -1,4 +1,8 @@
 <?php
+
+//TODO: Implement demo examples of namespace
+
+
 //This is the proper sequence of using namespace
 //1. declare(strict_types=1);
 //2. namespace Daniel/Bar/subnamespace
