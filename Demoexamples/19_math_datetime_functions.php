@@ -13,10 +13,10 @@ echo pow(4, 4) . "<br>";
 echo sqrt(9) . "<br>";
 echo rand(1, 59) . "<br><br>";     //A random number between 1 and 59
 
-//https://www.php.net/manual/en/ref.datetime.php
+https://www.php.net/manual/en/function.date
 $currentDate = date("Y-m-d H:i:s");
 $currentTimeStamp = strtotime($currentDate);
-echo "Current date=" . $currentDate  . "<br>";              //The current date
+echo "Current date=" . $currentDate . "<br>";              //The current date
 echo "Current timestamp=" . $currentTimeStamp . "<br><br>";      //Current date in timestamp
 
 $currentTime = time();
