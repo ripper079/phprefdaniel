@@ -105,6 +105,7 @@ $decodedFooArray = json_decode($encodedFooArray, true, 512, JSON_OBJECT_AS_ARRAY
 printPrettyArray($fooArray);
 printPrettyArray($decodedFooArray);
 
+//Make the array visual readable
 function printPrettyArray($array)
 {
     echo '<pre>';
