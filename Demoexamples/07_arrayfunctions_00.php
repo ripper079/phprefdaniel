@@ -1,30 +1,67 @@
 <?php
+ 
+//This file need to be splitted
+//This should have a basic functions
 
 //enforce strict typing in PHP functions
 declare(strict_types=1);
 
 //https://www.php.net/manual/en/ref.array.php
 
-$juicyFruits=['Pinapple', 'Banana', 'Raspberry'];
-//Get Length
-echo count($juicyFruits) . "<br>";
+//Make the array visual readable
+function printPrettyArray($array)
+{
+    echo '<pre>';
+    print_r($array);
+    echo '</pre>';
+}
 
-//Search array, in_array return true/false
+# array_key_exists($key, $array)
+#   checks if the key $key is present in the $array. Returns true/false
+# in_array($element, $array)
+#   checks if the element $element(the value) is present in the $array. Return true/false 
+# array_keys()
+#   creates a new array based on the indices/keys. The new array will have new keys started from index 0
+#       ["Daniel" => 43, "Joe Doe" => 65, "Jessica" => 12, "Per" => 3]   <=> [0 => "Daniel", 1 => "Joe Doe", 2 => "Jessica", 3 => "Per"] OR ["Daniel", "Joe Doe", "Jessica", "Per"]
+
+# --------------- Get the length of the array, aka total element in the array  --------------- 
+$juicyFruits=['Pinapple', 'Banana', 'Raspberry'];   //Theese start at 0 as key (or index). In this case this is 0, 1, 2
+// $juicyFruits=[0 => 'Pinapple', 1 => 'Banana', 2=> 'Raspberry'];      //the same as above variable
+//echo count($juicyFruits) . "<br>";
+
+# --------------- SEARCH array (return true/false)
+
+        //Find/Look for an element in the array (the value) - function: in_array($neeedle, $hayStack)
 $searchForFruit = 'Pinapple';
-if (in_array($searchForFruit, $juicyFruits)) {
+/*
+if (in_array($searchForFruit, $juicyFruits)) 
+{
     echo "The fruit $searchForFruit is present in the array<br>";
-} else {
+}
+else 
+{
     echo "No matching fruit<br>";
+}
+*/
+        //Find/Look for  if key exists in array - fuction: array_key_exists($thekey, $array)
+
+if (array_key_exists(10, $juicyFruits))
+{
+    echo "The key is present" . "<br>";
 }
 
 //Add(after last element) to array ), alt 1
 $juicyFruits[] = 'Blueberry';
-print_r($juicyFruits);
+/*print_r($juicyFruits);
 echo "<br>";
+*/
 //Add(after last element) to array, alt 2 (advantage add more than one each time)
 array_push($juicyFruits, 'Apple', 'Prum', 'blueberry', 'strawberry', 'banana', 'raspberry');
+/*
 print_r($juicyFruits);
 echo "<br>";
+*/
+/*
 //Add(at the beginning of the array)
 array_unshift($juicyFruits, 'Mango');
 print_r($juicyFruits);
@@ -145,3 +182,4 @@ function prettyPrintArray(array $value): void
     echo '</pre>'
 }
 
+*/

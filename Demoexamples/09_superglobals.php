@@ -21,18 +21,22 @@
 //var_dump($_SERVER);
 
 //Extract data from URL - Simulate this be input extra data in URL with e.i      ?food=pizza&eyecolor=bluey
-echo $_GET["food"] . "<br>";
-echo $_GET["eyecolor"] . "<br>";
+if (isset($_GET["food"]))
+  echo $_GET["food"] . "<br>";
+if (isset($_GET["eyecolor"]))
+    echo $_GET["eyecolor"] . "<br>";
 
 //$mySQLHomeDir = $_SERVER['MYSQL_HOME'];
+
+
 
 //You cant extract value from a defined contant in the superglobal variable $GLOBAL
 define('MY_FULLNAME_CONSTANT', 'DANIEL OIKARAINEN');
 //Here it is OK
 $globalCarName = "Toyotaaaa";
-
+echo "<pre>";
 print_r($_SERVER);
-
+echo '</pre>';
 
 ?>
 
@@ -46,18 +50,18 @@ print_r($_SERVER);
 </head>
 <body>
   <ul>
-    <li>Host: <?php echo $_SERVER['HTTP_HOST']; ?></li>
-    <li>Document Root: <?php echo $_SERVER['DOCUMENT_ROOT']; ?></li>
-    <li>System Root: <?php echo $_SERVER['SystemRoot']; ?></li>
-    <li>Server Name: <?php echo $_SERVER['SERVER_NAME']; ?></li>
-    <li>Server Port: <?php echo $_SERVER['SERVER_PORT']; ?></li>
-    <li>Current File Dir: <?php echo $_SERVER['PHP_SELF']; ?></li>
-    <li>Request URI: <?php echo $_SERVER['REQUEST_URI']; ?></li>
-    <li>Server Software: <?php echo $_SERVER['SERVER_SOFTWARE']; ?></li>
-    <li>Client Info: <?php echo $_SERVER['HTTP_USER_AGENT']; ?></li>
-    <li>Remote Address: <?php echo $_SERVER['REMOTE_ADDR']; ?></li>
-    <li>Remote Port: <?php echo $_SERVER['REMOTE_PORT']; ?></li>    
-    <li>Global scope variable = <?= $GLOBALS['globalCarName'] ?> </li>
+    <li>Host: <strong><?php echo $_SERVER['HTTP_HOST']; ?></strong></li>
+    <li>Document Root: <strong><?php echo $_SERVER['DOCUMENT_ROOT']; ?></strong></li>
+    <li>System Root: <strong><?php echo $_SERVER['SystemRoot']; ?></strong></li>
+    <li>Server Name: <strong><?php echo $_SERVER['SERVER_NAME']; ?></strong></li>
+    <li>Server Port: <strong><?php echo $_SERVER['SERVER_PORT']; ?></strong></li>
+    <li>Current File Dir: <strong><?php echo $_SERVER['PHP_SELF']; ?></strong></li>
+    <li>Request URI: <strong><?php echo $_SERVER['REQUEST_URI']; ?></strong></li>
+    <li>Server Software: <strong><?php echo $_SERVER['SERVER_SOFTWARE']; ?></strong></li>
+    <li>Client Info: <strong><?php echo $_SERVER['HTTP_USER_AGENT']; ?></strong></li>
+    <li>Remote Address: <strong><?php echo $_SERVER['REMOTE_ADDR']; ?></strong></li>
+    <li>Remote Port: <strong><?php echo $_SERVER['REMOTE_PORT']; ?></strong></li>    
+    <li>Global scope variable = <strong><?= $GLOBALS['globalCarName'] ?></strong></li>
   </ul>
 </body>
 </html>

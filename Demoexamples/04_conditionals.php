@@ -30,6 +30,12 @@ else:
 endif;
 
 
+// Ternary Operator,har the form
+//$variable = (condition) ? value_if_true : value_if_false;
+$printIsTenPoints = ($points === 10) ? "Point is actually 10" : "Point is something else then 10";
+
+
+
 //Switch make loose comparison, aka implicit type conversion
 // $month = 3;
 // switch ($month) {
@@ -91,3 +97,6 @@ $result = match ($bb) {
     default => "None match at all"
 };
 echo $result;
+
+
+
