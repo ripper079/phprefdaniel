@@ -38,6 +38,10 @@ function print_pretty_array($array)
 #   Applies a user-defined function to every element(the value) of an array.
 #   This function modifies the $arrayToCompute
 
+// 5 
+# array_reverse($arrayToBeFlipped)
+#   Creates(Returns) a new array, do NOT modify existing one 
+#   Create a new array in the reverse order. The keys will be rearranged. The last item will appear as the first and so on...
 
 $doubleValues = [66, 11, 57, 66, 101, 66, 150, 11, 66, 101];
 
@@ -71,6 +75,7 @@ $commonValues = array_intersect($valuesOne, $valuesTwo);
 print_pretty_array($commonValues);          // [ 0 => 11, 2 => 6, 3 => 25 ]
 */
 
+/*
 // 4
 array_walk($valuesOne, function(&$element) 
 {
@@ -78,4 +83,11 @@ array_walk($valuesOne, function(&$element)
 });
 
 print_pretty_array($valuesOne);
+*/
+
+//5 
+
+$flippedArray = array_reverse($dummyValues);
+
+print_pretty_array($flippedArray);
 
