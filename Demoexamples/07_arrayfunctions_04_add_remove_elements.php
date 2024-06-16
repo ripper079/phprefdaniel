@@ -39,8 +39,15 @@ function print_pretty_array($array)
 # Removing elements
 # With FUNCTIONS
 # array_pop($array) - Removes/pop the element at the END of the array
-# Return the deleted element of null if array is empty
+#   Return the deleted element of null if array is empty
 
+# 4 Remving elements
+# array_shift($pArray)
+#   Removes the first element in the array $pArray
+#   Returns the removed element. It also re-index after its operation
+#   Note: Usually "safe" to use with associative arrays because key are not affected. Normal arrays get reindexed.
+
+# 5
 # With function
 # unset($array[keyvalue])
 # Deletes an element with it corresponding key
@@ -98,6 +105,7 @@ print_pretty_array($squareNumbers);     // [ 3 => 9, 5 => 25, 7 => 49, 2 => 4, 9
 */
 
 //------------------------------ REMOVING elements ------------------------------ 
+
 /*
 // 3
 array_pop($luckyNumbers);
@@ -107,11 +115,22 @@ array_pop($squareNumbers);
 print_pretty_array($luckyNumbers);      // [ 0 => 69, 1 => 79, 2 => 999, 3 => 12 ]
 print_pretty_array($speakNumbers);      // [ "nineteen" => 19, "two" => 2, "twelwe" => 12, "thirtythree" => 33 ]
 print_pretty_array($squareNumbers);     // [ 3 => 9, 5 => 25, 7 => 49, 2 => 4, 9 => 81 ]
-
 */
 
 /*
 //4
+array_shift($luckyNumbers);
+array_shift($speakNumbers);
+array_shift($squareNumbers);
+
+print_pretty_array($luckyNumbers);      //  [ 0 => 79, 1 => 999, 2 => 12, 3 => 16 ]
+print_pretty_array($speakNumbers);      //  [ "two" => 2, "twelwe" => 12, "thirtythree" => 33, "twentysix" => 26 ]
+//Note that reindexation occurs here
+print_pretty_array($squareNumbers);     //  [ 0 => 25, 1 => 49, 2 => 4, 3 => 81, 4 => 36 ]
+*/
+
+/*
+//5
 unset($luckyNumbers[3]);
 unset($speakNumbers["twelwe"]);
 unset($squareNumbers[5]);
